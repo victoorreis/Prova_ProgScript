@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Pokemon</title>
+  <link rel="stylesheet" type="text/css" href="pokemon.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+  <div id="app" class="game">
+    <div class="opponent">
+      <div class="stats">
+        <div class="top">
+          <div class="pokeballs">
+            <div class="pokeball" v-for="n in 5" :key="n"></div>
+          </div>
+          <div class="hp-count">{{ opponentHP }}</div>
+        </div>
+        <span class="name">{{ opponentName }}</span>
+        <span class="level">{{ opponentLevel }}</span>
+      </div>
+      <img class="pokemon" :src="opponentImage" alt="A sprite of opponent Pokémon"/>
+    </div>
+    
+    <div class="player">
+      <div class="stats">
+        <div class="top">
+          <div class="pokeballs">
+            <div class="pokeball" v-for="n in 5" :key="n"></div>
+          </div>
+          <div class="hp-count">{{ playerHP }}</div>
+        </div>
+        <span class="name">{{ playerName }}</span>
+        <span class="level">{{ playerLevel }}</span>
+      </div>
+      <img class="pokemon" :src="playerImage" alt="A sprite of player Pokémon"/>
+    </div>
+    
+    <div class="box">
+      <div class="message">{{ message }}</div>
+      <div class="actions">
+        <button @click="useAttack('waterCannon')">Water Cannon</button>
+        <button @click="useAttack('waterPulse')">Water Pulse</button>
+        <button @click="useAttack('surf')">Surf</button>
+        <button @click="useAttack('tackle')">Tackle</button>
+      </div>
+      <div class="restart">
+        <button @click="restartGame">Reiniciar Jogo</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="./pokemon.js"></script>
+</body>
+</html>
